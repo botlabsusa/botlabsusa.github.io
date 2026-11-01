@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" role="img" aria-label="Botlabs USA">
+  <rect x="2" y="6" width="36" height="36" rx="8" fill="none" stroke="#0f766e" stroke-width="2.5"/>
+  <path d="M12 30 V18 L20 28 L28 18 V30" fill="none" stroke="#0f766e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="48" y="32" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="22" font-weight="700" fill="#111827" letter-spacing="0.5">Botlabs <tspan fill="#0f766e">USA</tspan></text>
+</svg>

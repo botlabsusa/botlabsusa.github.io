@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Botlabs Bench — Portable PC benchmark for Windows &amp; Linux | Botlabs USA</title>
+  <meta name="description" content="Botlabs Bench is a free, portable PC benchmark for Windows and Linux. One file, no installer — test CPU, memory, disk, GPU, and network, then save HTML/CSV/XLSX/JSON reports.">
+  <link rel="canonical" href="https://botlabsusa.com/apps/botlabs-bench.html">
+  <meta name="theme-color" content="#fafafa">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Botlabs USA">
+  <meta property="og:title" content="Botlabs Bench — Portable PC benchmark">
+  <meta property="og:description" content="Free portable PC benchmark for Windows and Linux. Quick, Detailed, or Custom modes with live graphs and multi-format reports.">
+  <meta property="og:url" content="https://botlabsusa.com/apps/botlabs-bench.html">
+  <meta property="og:image" content="https://botlabsusa.com/assets/botlabsbench-128.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Botlabs Bench — Portable PC benchmark">
+  <meta name="twitter:description" content="Free portable PC benchmark for Windows and Linux. One file, no installer.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo-link" href="/" aria-label="Botlabs USA home">
+        <img src="/assets/logo.svg" alt="Botlabs USA" width="200" height="40">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">☰</button>
+      <nav id="site-nav" class="nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/apps/botlabs-bench.html" aria-current="page">Botlabs Bench</a>
+        <a href="/apps/cachyos-benchmark.html">CachyOS Benchmark</a>
+        <a href="/license.html">License</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <header class="page-header">
+        <img class="app-icon" src="/assets/botlabsbench.png" width="80" height="80" alt="">
+        <div>
+          <h1>Botlabs Bench</h1>
+          <p class="lede">
+            A free, portable PC benchmark for Windows and Linux. It’s one file and needs no installer:
+            download it, run it, and it tests your CPU, memory, storage, graphics and network, then saves
+            a full report next to the app.
+          </p>
+          <div class="badges">
+            <span class="badge badge-accent">Linux v1.1.1</span>
+            <span class="badge badge-accent">Windows v1.1.1</span>
+            <span class="badge">Windows 10/11 · Linux x86_64</span>
+            <span class="badge"><a href="/license.html">MIT License</a></span>
+          </div>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>
+          Pick Quick (10 minutes), Detailed (1 hour), or Custom, where you choose the tests and how long
+          they run. While it runs you see live progress bars and graphs, and you can stop at any time
+          without losing the results so far. Reports come out as HTML with charts, plus CSV, Excel and JSON.
+          It’s good for checking a new or upgraded PC, spotting thermal throttling, and comparing machines
+          or before/after runs side by side. It uses the same CPU test on Windows and Linux, so results are
+          comparable across both.
+        </p>
+      </div>
+
+      <h2 class="section" id="features">Features</h2>
+      <ul class="feature-list">
+        <li><strong>CPU:</strong> single-core, all-core, and a sustained throttling check (same algorithm on Windows and Linux)</li>
+        <li><strong>Memory:</strong> bandwidth, latency, error check</li>
+        <li><strong>Disk:</strong> sequential and 4K random read/write, with drive selection</li>
+        <li><strong>GPU:</strong> built-in OpenGL test that works on Intel, AMD and NVIDIA</li>
+        <li><strong>Network:</strong> internet download speed (Cloudflare) plus LAN/NAS copy test</li>
+        <li><strong>Modes:</strong> Quick (10 min), Detailed (1 hr), Custom (pick tests, set a duration or do a single pass)</li>
+        <li>Live progress bars, percentages and graphs, and a Stop button that keeps partial results</li>
+        <li>Reports in HTML (with charts), CSV, XLSX and JSON, saved to a BenchResults folder next to the app</li>
+        <li>Compare view to put runs side by side (warns when versions differ)</li>
+        <li>Headless command-line mode for scripting</li>
+        <li>Temperatures on Linux; <strong>not available on Windows yet</strong></li>
+      </ul>
+
+      <h2 class="section" id="requirements">Requirements</h2>
+      <div class="req-box">
+        <ul>
+          <li><strong>Windows:</strong> Windows 10/11 64-bit — single portable <code>.exe</code></li>
+          <li><strong>Linux:</strong> x86_64 AppImage — glibc 2.38 or newer, OpenGL-capable GPU driver. Tested on CachyOS (Plasma Wayland, RTX 3090) and on a generic Linux VM.</li>
+          <li>The disk test uses a temp file of 64–2048 MB (user-selectable) and needs that much free space. Minimum RAM/disk is not formally specified.</li>
+        </ul>
+      </div>
+
+      <h2 class="section" id="install">Install &amp; run</h2>
+      <div class="install-box">
+        <p><strong>Windows</strong></p>
+        <ol>
+          <li>Download <code>BotlabsBench.exe</code> and double-click it.</li>
+          <li>Windows SmartScreen may warn because it’s unsigned — choose <em>More info</em> → <em>Run anyway</em>.</li>
+          <li>Results go to a <code>BenchResults</code> folder next to the exe.</li>
+        </ol>
+        <p style="margin-top:1rem"><strong>Linux</strong></p>
+        <ol>
+          <li>Download the AppImage.</li>
+          <li><code>chmod +x BotlabsBench-x86_64.AppImage</code></li>
+          <li><code>./BotlabsBench-x86_64.AppImage</code></li>
+          <li>Results go to a <code>BenchResults</code> folder next to the AppImage.</li>
+        </ol>
+        <p style="margin-top:1rem"><strong>Headless</strong></p>
+        <pre><code>--headless --mode custom --tests cpu,memory,disk,network,gpu --single-pass</code></pre>
+        <p class="note">Also supports <code>--duration-sec N</code> and <code>--disk-drive PATH</code>.</p>
+      </div>
+
+      <h2 class="section" id="downloads">Downloads</h2>
+      <div class="download-panel">
+        <p class="note">Downloads are hosted on <a href="https://github.com/botlabsusa/botlabs-bench/releases/tag/v1.1.1">GitHub Releases</a>. Source code: <a href="https://github.com/botlabsusa/botlabs-bench">botlabsusa/botlabs-bench</a>.</p>
+
+        <div class="download-item">
+          <div>
+            <strong>Linux AppImage</strong> — Botlabs Bench 1.1.1
+          </div>
+          <div class="download-meta">
+            <span><strong>File:</strong> BotlabsBench-x86_64.AppImage</span>
+            <span><strong>Size:</strong> 49,134,072 bytes (49.1 MB)</span>
+            <span><strong>Built:</strong> Nov 1, 2026</span>
+          </div>
+          <div class="download-meta hash">
+            <span><strong>SHA256:</strong> 36297e3cb8c2e0ae71a818cadd10796b5b37a4af3f5c7c2cb0eddc95407f4903</span>
+          </div>
+          <a class="btn btn-download" href="https://github.com/botlabsusa/botlabs-bench/releases/download/v1.1.1/BotlabsBench-x86_64.AppImage" data-file="BotlabsBench-x86_64.AppImage">Download from GitHub</a>
+        </div>
+
+        <div class="download-item">
+          <div>
+            <strong>Windows</strong> — Botlabs Bench 1.1.1
+          </div>
+          <div class="download-meta">
+            <span><strong>File:</strong> BotlabsBench.exe</span>
+            <span><strong>Size:</strong> 43,631,864 bytes (43.6 MB)</span>
+            <span><strong>SHA256:</strong> 0387b98fd63e7096e5ded0bd3b331e5b8af41b6f7efc5fada47ab9853dd6cc8d</span>
+            <span><strong>Built:</strong> Nov 1, 2026</span>
+          </div>
+          <a class="btn btn-download" href="https://github.com/botlabsusa/botlabs-bench/releases/download/v1.1.1/BotlabsBench.exe" data-file="BotlabsBench.exe">Download from GitHub</a>
+        </div>
+      </div>
+
+      <h2 class="section" id="changelog">Changelog</h2>
+      <div class="changelog">
+        <dl>
+          <dt>1.1.1 <span class="badge">Linux · Nov 1, 2026</span></dt>
+          <dd>
+            <ul>
+              <li>Added an automated self-test of the GUI run and Stop button</li>
+              <li>Removed a harmless font warning on Linux</li>
+            </ul>
+          </dd>
+          <dt>1.1.0 <span class="badge">Nov 1, 2026</span></dt>
+          <dd>
+            <ul>
+              <li>Disk test now falls back to a writable folder</li>
+              <li>Fixed the internet speed test certificate error on Linux</li>
+              <li>Fixed font/window-decoration errors on Linux desktops</li>
+              <li>Reports now carry a benchmark version; Compare warns when versions differ</li>
+            </ul>
+          </dd>
+          <dt>1.0.0</dt>
+          <dd>
+            <ul>
+              <li>First release</li>
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      <h2 class="section" id="sample-report">Sample report</h2>
+      <div class="prose">
+        <p>Example HTML report from a CachyOS run (v1.1.0):</p>
+      </div>
+      <figure class="sample-report" id="sample-report-figure">
+        <!-- Filled if screenshot was generated; otherwise a note -->
+        <img id="sample-report-img" src="/assets/botlabs-bench-sample-report.png" alt="Sample Botlabs Bench HTML report" width="1100" height="auto" onerror="this.closest('figure').style.display='none'; document.getElementById('sample-report-fallback').hidden=false;">
+        <figcaption>Sample Botlabs Bench HTML report (charts and scores)</figcaption>
+      </figure>
+      <p id="sample-report-fallback" class="note" hidden>Sample report image not available yet.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2026 Botlabs USA</p>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/apps/cachyos-benchmark.html">CachyOS Benchmark</a>
+        <a href="/license.html">MIT License</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

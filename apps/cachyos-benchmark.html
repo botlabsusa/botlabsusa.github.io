@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CachyOS Benchmark — One-click PC checkup after updates | Botlabs USA</title>
+  <meta name="description" content="CachyOS Benchmark is a one-click checkup for your PC after updates. Same tests every time, results tagged with kernel and driver versions, plus a What changed view that flags real regressions.">
+  <link rel="canonical" href="https://botlabsusa.com/apps/cachyos-benchmark.html">
+  <meta name="theme-color" content="#fafafa">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Botlabs USA">
+  <meta property="og:title" content="CachyOS Benchmark — One-click PC checkup">
+  <meta property="og:description" content="Repeatable Linux benchmarks with What changed tracking after CachyOS updates. Spot real regressions, not noise.">
+  <meta property="og:url" content="https://botlabsusa.com/apps/cachyos-benchmark.html">
+  <meta property="og:image" content="https://botlabsusa.com/assets/cachy-bench.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CachyOS Benchmark — One-click PC checkup">
+  <meta name="twitter:description" content="Repeatable Linux benchmarks with What changed tracking after updates.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo-link" href="/" aria-label="Botlabs USA home">
+        <img src="/assets/logo.svg" alt="Botlabs USA" width="200" height="40">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">☰</button>
+      <nav id="site-nav" class="nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/apps/botlabs-bench.html">Botlabs Bench</a>
+        <a href="/apps/cachyos-benchmark.html" aria-current="page">CachyOS Benchmark</a>
+        <a href="/license.html">License</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <header class="page-header">
+        <img class="app-icon" src="/assets/cachy-bench.png" width="80" height="80" alt="">
+        <div>
+          <h1>CachyOS Benchmark</h1>
+          <p class="lede">
+            A one-click checkup for your PC that you run after updates. It runs the same set of tests
+            every time, covering CPU, memory, compression, video encoding, disk, GPU, and latency.
+            Each result is saved with the kernel, NVIDIA, Plasma, and Mesa versions you had at the time,
+            so you can see how each update affected performance.
+          </p>
+          <div class="badges">
+            <span class="badge badge-accent">Version 1.0.0</span>
+            <span class="badge">Linux x86_64 · CachyOS</span>
+            <span class="badge"><a href="/license.html">MIT License</a></span>
+          </div>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>
+          It’s worth using because CachyOS updates all the time, and a slowdown from a new kernel or
+          driver is easy to miss. After each run, the What changed tab shows which packages were updated
+          since the last run and which scores got faster (green) or slower (red). Small changes that fall
+          within normal run-to-run variation are greyed out, so you only chase real regressions. It also
+          warns you if a run started with the PC already hot, since heat can make a run look slower than
+          it really is. Over time that gives you hard numbers to decide whether to keep an update or roll
+          it back with snapper.
+        </p>
+      </div>
+
+      <h2 class="section" id="features">Features</h2>
+      <ul class="feature-list">
+        <li>One-click, repeatable benchmark that takes about 10 minutes</li>
+        <li><strong>Tests:</strong> sysbench CPU and memory; 7-Zip single-thread (pinned to P-cores) and multi-thread; zstd compression and decompression; x264 1080p encoding with ffmpeg; fio disk I/O; glmark2 (OpenGL) and vkmark (Vulkan) GPU tests; cyclictest latency; peak CPU and GPU temperatures</li>
+        <li>Every run is logged with the kernel, NVIDIA driver, Plasma and Mesa versions</li>
+        <li><strong>What changed</strong> view lists packages upgraded, installed or removed since the last run (read from the pacman log) and shows which metrics moved beyond normal run-to-run noise — green faster, red slower, grey within noise. Compares against the previous run and against a baseline</li>
+        <li>Warns when a run starts hot (CPU or GPU above 50°C) and offers an optional cooldown wait</li>
+        <li>History and Compare tabs with charts</li>
+        <li>Results kept outside the app in <code>~/bench</code> (<code>results.csv</code> plus per-run logs); location changeable with <code>CACHY_BENCH_DATA</code></li>
+        <li>Dependency check (<code>--check-deps</code>) prints the exact <code>sudo pacman -S</code> line for any missing test tools</li>
+      </ul>
+
+      <h2 class="section" id="requirements">Requirements</h2>
+      <div class="req-box">
+        <ul>
+          <li><strong>Platform:</strong> Linux x86_64. Built and tested on CachyOS (Arch-based) with KDE Plasma 6 on Wayland. Not tested on other distros yet.</li>
+          <li>Python, PySide6 and matplotlib are bundled in the AppImage.</li>
+          <li><strong>System test tools:</strong> sysbench, 7zip or p7zip, zstd, ffmpeg, fio, glmark2, vkmark, rt-tests, lm_sensors, util-linux, plus <code>nvidia-smi</code> for NVIDIA GPU temperatures.</li>
+        </ul>
+      </div>
+
+      <h2 class="section" id="install">Install &amp; run</h2>
+      <div class="install-box">
+        <ol>
+          <li>Download <code>CachyBench-1.0.0-x86_64.AppImage</code>.</li>
+          <li><code>chmod +x CachyBench-1.0.0-x86_64.AppImage</code></li>
+          <li><code>./CachyBench-1.0.0-x86_64.AppImage</code></li>
+        </ol>
+        <p style="margin-top:1rem"><strong>Useful flags</strong></p>
+        <pre><code>--check-deps
+--selftest
+--what-changed</code></pre>
+      </div>
+
+      <h2 class="section" id="downloads">Downloads</h2>
+      <div class="download-panel">
+        <p class="note">Downloads are hosted on <a href="https://github.com/botlabsusa/cachyos-benchmark/releases/tag/v1.0.0">GitHub Releases</a>. Source code: <a href="https://github.com/botlabsusa/cachyos-benchmark">botlabsusa/cachyos-benchmark</a>.</p>
+
+        <div class="download-item">
+          <div>
+            <strong>Linux AppImage</strong> — CachyOS Benchmark 1.0.0
+          </div>
+          <div class="download-meta">
+            <span><strong>File:</strong> CachyBench-1.0.0-x86_64.AppImage</span>
+            <span><strong>Size:</strong> 87,022,072 bytes (87.0 MB)</span>
+            <span><strong>Built:</strong> Nov 1, 2026</span>
+          </div>
+          <div class="download-meta hash">
+            <span><strong>SHA256:</strong> aaca35030e3597702bb256b1b14dffc513a5c5cc8f8624a76eef677fe6704f92</span>
+          </div>
+          <a class="btn btn-download" href="https://github.com/botlabsusa/cachyos-benchmark/releases/download/v1.0.0/CachyBench-1.0.0-x86_64.AppImage" data-file="CachyBench-1.0.0-x86_64.AppImage">Download from GitHub</a>
+        </div>
+      </div>
+
+      <h2 class="section" id="changelog">Changelog</h2>
+      <div class="changelog">
+        <dl>
+          <dt>1.0.0 <span class="badge">Nov 1, 2026</span></dt>
+          <dd>
+            <ul>
+              <li>First AppImage release</li>
+              <li>Added the dependency check</li>
+              <li>Added the What changed view with pacman-log change tracking</li>
+              <li>Noise-aware regression flags</li>
+              <li>Hot-start warning</li>
+            </ul>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2026 Botlabs USA</p>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/apps/botlabs-bench.html">Botlabs Bench</a>
+        <a href="/license.html">MIT License</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

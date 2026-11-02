@@ -515,6 +515,44 @@ pre code {
 .footer-links a { color: var(--text-dim); }
 .footer-links a:hover { color: var(--accent); }
 
+/* Patreon support badge — official coral + 2023 P mark */
+.patreon-badge {
+  --patreon: #FF424D;
+  --patreon-hover: #E03842;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem 0.35rem 0.55rem;
+  border-radius: 999px;
+  background: var(--patreon);
+  color: #fff !important;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none !important;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 2px rgba(17, 24, 39, 0.08);
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+.patreon-badge:hover {
+  background: var(--patreon-hover);
+  color: #fff !important;
+  text-decoration: none !important;
+  box-shadow: 0 2px 6px rgba(255, 66, 77, 0.35);
+  transform: translateY(-1px);
+}
+.patreon-badge:focus-visible {
+  outline: 2px solid var(--patreon);
+  outline-offset: 2px;
+}
+.patreon-badge-icon {
+  flex-shrink: 0;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+}
+
+
 .error-page {
   text-align: center;
   padding: 3.5rem 1rem 2rem;

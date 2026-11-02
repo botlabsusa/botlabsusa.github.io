@@ -580,12 +580,6 @@ pre code {
   max-width: var(--max);
 }
 
-/* About on home — tight */
-.home-about {
-  border-top: 1px solid var(--border);
-  padding-top: 1.5rem;
-  margin-top: 0.25rem;
-}
 
 @media (max-width: 720px) {
   .nav-toggle { display: inline-flex; }

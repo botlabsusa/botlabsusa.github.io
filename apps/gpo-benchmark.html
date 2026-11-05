@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GPO Benchmark — Score Windows against Microsoft security baselines | Botlabs USA</title>
+  <meta name="description" content="GPO Benchmark is a free, portable Windows app that scores a PC or a GPO export against Microsoft Security Compliance Toolkit baselines, with category scores, per-setting detail, and a PDF report.">
+  <link rel="canonical" href="https://botlabsusa.com/apps/gpo-benchmark.html">
+  <meta name="theme-color" content="#fafafa">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Botlabs USA">
+  <meta property="og:title" content="GPO Benchmark — Score Windows against Microsoft security baselines">
+  <meta property="og:description" content="GPO Benchmark is a free, portable Windows app that scores a PC or a GPO export against Microsoft Security Compliance Toolkit baselines, with category scores, per-setting detail, and a PDF report.">
+  <meta property="og:url" content="https://botlabsusa.com/apps/gpo-benchmark.html">
+  <meta property="og:image" content="https://botlabsusa.com/assets/gpo-benchmark.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="GPO Benchmark — Score Windows against Microsoft security baselines">
+  <meta name="twitter:description" content="GPO Benchmark is a free, portable Windows app that scores a PC or a GPO export against Microsoft Security Compliance Toolkit baselines, with category scores, per-setting detail, and a PDF report.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo-link" href="/" aria-label="Botlabs USA home">
+        <img src="/assets/logo.svg" alt="Botlabs USA" width="200" height="40">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">☰</button>
+      <nav id="site-nav" class="nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/apps/botlabs-bench.html">Botlabs Bench</a>
+        <a href="/apps/cachyos-benchmark.html">CachyOS Benchmark</a>
+        <a href="/apps/gpo-benchmark.html" aria-current="page">GPO Benchmark</a>
+        <a href="/license.html">License</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <header class="page-header">
+        <img class="app-icon" src="/assets/gpo-benchmark.png" width="80" height="80" alt="">
+        <div>
+          <h1>GPO Benchmark</h1>
+          <p class="lede">
+            A portable Windows app that scores a PC, or a GPO export, against Microsoft Security
+            Compliance Toolkit baselines. See how you score in each category, drill into every
+            setting, and save a PDF report.
+          </p>
+          <div class="badges">
+            <span class="badge badge-accent">Beta · 0.9.0-beta</span>
+            <span class="badge">Windows x64</span>
+            <span class="badge"><a href="/license.html">MIT License</a></span>
+          </div>
+        </div>
+      </header>
+
+      <div class="req-box">
+        <p><strong>This is a beta, and it's unsigned.</strong> Windows SmartScreen may warn you when you open it.
+        Click <strong>More info</strong>, then <strong>Run anyway</strong>. You can check the SHA256 hashes below first.</p>
+      </div>
+
+      <h2 class="section" id="features">Features</h2>
+      <ul class="feature-list">
+        <li>Scores this PC, or a GPO export, against Microsoft Security Compliance Toolkit baselines</li>
+        <li><strong>Baselines:</strong> Windows 11 24H2, 25H2 and 26H2; Windows 10; Windows Server 2022 and 2025; Microsoft Edge; Microsoft 365 Apps</li>
+        <li>Category scores so you can see where you stand at a glance</li>
+        <li>Detailed per-setting view: expected value, your value, pass or fail</li>
+        <li>PDF report you can save or share</li>
+        <li>Read-only: it never changes your settings</li>
+        <li>GUI and command-line versions, single file, no installer</li>
+      </ul>
+
+      <h2 class="section" id="requirements">Requirements</h2>
+      <div class="req-box">
+        <ul>
+          <li><strong>Platform:</strong> Windows x64 (Windows 10, Windows 11, Windows Server).</li>
+          <li>The GUI runs as administrator so it can read local policy settings.</li>
+          <li>Nothing else to install. Everything is bundled.</li>
+        </ul>
+      </div>
+
+      <h2 class="section" id="install">Install &amp; run</h2>
+      <div class="install-box">
+        <ol>
+          <li>Download the GUI zip (or the CLI zip).</li>
+          <li>Unzip it anywhere.</li>
+          <li>Run <code>GpoBenchmark.exe</code> and accept the admin prompt. For the CLI, run <code>gpo-benchmark.exe</code> from a terminal.</li>
+        </ol>
+      </div>
+
+      <h2 class="section" id="downloads">Downloads</h2>
+      <div class="download-panel">
+        <p class="note">Downloads are hosted on <a href="https://github.com/botlabsusa/gpo-benchmark/releases/tag/v0.9.0-beta">GitHub Releases</a>, where you'll also find the single-file <code>.exe</code> versions and <code>SHA256SUMS.txt</code>. Source code: <a href="https://github.com/botlabsusa/gpo-benchmark">botlabsusa/gpo-benchmark</a>.</p>
+
+        <div class="download-item">
+          <div>
+            <strong>Windows GUI (zip)</strong> — GPO Benchmark 0.9.0-beta
+          </div>
+          <div class="download-meta">
+            <span><strong>File:</strong> GpoBenchmark-0.9.0-beta-win-x64.zip</span>
+            <span><strong>Size:</strong> 81,126,619 bytes (81.1 MB)</span>
+            <span><strong>Built:</strong> Nov 4, 2026</span>
+          </div>
+          <div class="download-meta hash">
+            <span><strong>SHA256:</strong> f7a119c00209c2f747681e9d3a12f0d6ee68bb3bcfbd6e461542a04a475c2e22</span>
+          </div>
+          <a class="btn btn-download" href="https://github.com/botlabsusa/gpo-benchmark/releases/download/v0.9.0-beta/GpoBenchmark-0.9.0-beta-win-x64.zip" data-file="GpoBenchmark-0.9.0-beta-win-x64.zip" data-goatcounter-click="download-gpo-benchmark-gui-zip" data-goatcounter-title="GpoBenchmark-0.9.0-beta-win-x64.zip">Download from GitHub</a>
+        </div>
+
+        <div class="download-item">
+          <div>
+            <strong>Windows CLI (zip)</strong> — GPO Benchmark 0.9.0-beta
+          </div>
+          <div class="download-meta">
+            <span><strong>File:</strong> gpo-benchmark-cli-0.9.0-beta-win-x64.zip</span>
+            <span><strong>Size:</strong> 44,964,307 bytes (45.0 MB)</span>
+            <span><strong>Built:</strong> Nov 4, 2026</span>
+          </div>
+          <div class="download-meta hash">
+            <span><strong>SHA256:</strong> c3c3a641ea0818a42b5aa6726c16a72a07f632839dfd3e07f6b6fcf1230ec1bf</span>
+          </div>
+          <a class="btn btn-download" href="https://github.com/botlabsusa/gpo-benchmark/releases/download/v0.9.0-beta/gpo-benchmark-cli-0.9.0-beta-win-x64.zip" data-file="gpo-benchmark-cli-0.9.0-beta-win-x64.zip" data-goatcounter-click="download-gpo-benchmark-cli-zip" data-goatcounter-title="gpo-benchmark-cli-0.9.0-beta-win-x64.zip">Download from GitHub</a>
+        </div>
+      </div>
+
+      <h2 class="section" id="changelog">Changelog</h2>
+      <div class="changelog">
+        <dl>
+          <dt>0.9.0-beta <span class="badge">Nov 4, 2026</span></dt>
+          <dd>
+            <ul>
+              <li>First public beta</li>
+              <li>GUI and CLI, scoring against bundled Microsoft security baselines</li>
+              <li>Category scores, per-setting detail, and PDF reports</li>
+            </ul>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2026 Botlabs USA</p>
+      <div class="footer-links">
+        <a class="patreon-badge" href="https://www.patreon.com/botlabs" target="_blank" rel="noopener" aria-label="Become a Patron on Patreon">
+          <svg class="patreon-badge-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="16" height="16">
+            <path fill="currentColor" d="M22.957 7.21c-.004-3.064-2.391-5.576-5.191-6.482-3.478-1.125-8.064-.962-11.384.604C2.357 3.231 1.093 7.391 1.046 11.54c-.039 3.411.302 12.396 5.369 12.46 3.765.047 4.326-4.804 6.068-7.141 1.24-1.662 2.836-2.132 4.801-2.618 3.376-.836 5.678-3.501 5.673-7.031Z"/>
+          </svg>
+          <span>Become a Patron</span>
+        </a>
+        <a href="mailto:support@botlabsusa.com">support@botlabsusa.com</a>
+        <a href="/license.html">MIT License</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/main.js" defer></script>
+<script data-goatcounter="https://botlabsusa.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

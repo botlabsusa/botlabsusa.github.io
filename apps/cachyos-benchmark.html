@@ -50,7 +50,7 @@
             you had at the time.
           </p>
           <div class="badges">
-            <span class="badge badge-accent">Version 1.0.1</span>
+            <span class="badge badge-accent">Version 1.0.3</span>
             <span class="badge">Linux x86_64 · CachyOS</span>
             <span class="badge"><a href="/license.html">MIT License</a></span>
           </div>
@@ -93,39 +93,51 @@
       <h2 class="section" id="install">Install &amp; run</h2>
       <div class="install-box">
         <ol>
-          <li>Download <code>CachyBench-1.0.1-x86_64.AppImage</code>.</li>
-          <li><code>chmod +x CachyBench-1.0.1-x86_64.AppImage</code></li>
-          <li><code>./CachyBench-1.0.1-x86_64.AppImage</code></li>
+          <li>Download <code>CachyBench-1.0.3-x86_64.AppImage</code>.</li>
+          <li><code>chmod +x CachyBench-1.0.3-x86_64.AppImage</code></li>
+          <li><code>./CachyBench-1.0.3-x86_64.AppImage</code></li>
         </ol>
         <p style="margin-top:1rem"><strong>Useful flags</strong></p>
         <pre><code>--check-deps
 --selftest
---what-changed</code></pre>
+--what-changed
+--temps-once
+--delete-runs
+--undo-delete</code></pre>
       </div>
 
       <h2 class="section" id="downloads">Downloads</h2>
       <div class="download-panel">
-        <p class="note">Downloads are hosted on <a href="https://github.com/botlabsusa/cachyos-benchmark/releases/tag/v1.0.1">GitHub Releases</a>. Source code: <a href="https://github.com/botlabsusa/cachyos-benchmark">botlabsusa/cachyos-benchmark</a>.</p>
+        <p class="note">Downloads are hosted on <a href="https://github.com/botlabsusa/cachyos-benchmark/releases/tag/v1.0.3">GitHub Releases</a>. Source code: <a href="https://github.com/botlabsusa/cachyos-benchmark">botlabsusa/cachyos-benchmark</a>.</p>
 
         <div class="download-item">
           <div>
-            <strong>Linux AppImage</strong> — CachyOS Benchmark 1.0.1
+            <strong>Linux AppImage</strong> — CachyOS Benchmark 1.0.3
           </div>
           <div class="download-meta">
-            <span><strong>File:</strong> CachyBench-1.0.1-x86_64.AppImage</span>
-            <span><strong>Size:</strong> 87,022,072 bytes (87.0 MB)</span>
-            <span><strong>Built:</strong> Nov 1, 2026</span>
+            <span><strong>File:</strong> CachyBench-1.0.3-x86_64.AppImage</span>
+            <span><strong>Size:</strong> 86,948,344 bytes (86.9 MB)</span>
+            <span><strong>Built:</strong> Nov 13, 2026</span>
           </div>
           <div class="download-meta hash">
-            <span><strong>SHA256:</strong> ea45b5033a842ad39f1357c3631ca3288673356abc02cb3283e61427e4e50c92</span>
+            <span><strong>SHA256:</strong> 0cba9311b9e99341d71b6d13e8e3d6a2dc3e2531ef692e2bdb064205776690d1</span>
           </div>
-          <a class="btn btn-download" href="https://github.com/botlabsusa/cachyos-benchmark/releases/download/v1.0.1/CachyBench-1.0.1-x86_64.AppImage" data-file="CachyBench-1.0.1-x86_64.AppImage" data-goatcounter-click="download-cachyos-benchmark-appimage" data-goatcounter-title="CachyBench-1.0.1-x86_64.AppImage">Download from GitHub</a>
+          <a class="btn btn-download" href="https://github.com/botlabsusa/cachyos-benchmark/releases/download/v1.0.3/CachyBench-1.0.3-x86_64.AppImage" data-file="CachyBench-1.0.3-x86_64.AppImage" data-goatcounter-click="download-cachyos-benchmark-appimage" data-goatcounter-title="CachyBench-1.0.3-x86_64.AppImage">Download from GitHub</a>
         </div>
       </div>
 
       <h2 class="section" id="changelog">Changelog</h2>
       <div class="changelog">
         <dl>
+          <dt>1.0.3 <span class="badge">Nov 13, 2026</span></dt>
+          <dd>
+            <ul>
+              <li>New dark steampunk interface with brass gauge dials for live CPU and GPU temperatures, themed charts and tables, and the window opens maximized</li>
+              <li>Includes 1.0.2 (never published separately): History checkboxes, Select all, and Delete with Undo (backups are kept)</li>
+              <li>The Run tab shows live temperatures with peaks and a 5-minute chart, and logs temps during a run</li>
+              <li>New CLI options: <code>--delete-runs</code>, <code>--undo-delete</code> and <code>--temps-once</code></li>
+            </ul>
+          </dd>
           <dt>1.0.1 <span class="badge">Nov 1, 2026</span></dt>
           <dd>
             <ul>

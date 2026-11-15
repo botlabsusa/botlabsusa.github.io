@@ -3,22 +3,62 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CachyOS Benchmark — Track performance changes after updates | Botlabs USA</title>
-  <meta name="description" content="CachyOS Benchmark tracks your Linux PC's performance over time. Run the same tests before and after updates, compare against a baseline, and see which scores really changed.">
+  <title>CachyOS Benchmark — Track performance changes between updates | Botlabs USA</title>
+  <meta name="description" content="CachyOS Benchmark tracks performance changes between system updates on CachyOS and Arch. Same tests every run, version-tagged history, and real regressions flagged.">
   <link rel="canonical" href="https://botlabsusa.com/apps/cachyos-benchmark.html">
   <meta name="theme-color" content="#fafafa">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Botlabs USA">
-  <meta property="og:title" content="CachyOS Benchmark — Track performance after updates">
-  <meta property="og:description" content="See what changed after a kernel, driver, or package update. Repeatable tests, saved baselines, and noise-aware before/after comparisons.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="CachyOS Benchmark — Track performance changes between updates">
+  <meta property="og:description" content="Free tool that tracks performance changes between system updates on CachyOS and Arch: see which kernel, driver or package update made your PC faster or slower.">
   <meta property="og:url" content="https://botlabsusa.com/apps/cachyos-benchmark.html">
   <meta property="og:image" content="https://botlabsusa.com/assets/icons/cachyos-benchmark/social-preview.png">
   <meta property="og:image:width" content="1280">
   <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="CachyOS Benchmark — track performance across rolling updates">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="CachyOS Benchmark — Track performance after updates">
-  <meta name="twitter:description" content="See what changed after a kernel, driver, or package update — not just a one-off score.">
+  <meta name="twitter:title" content="CachyOS Benchmark — Track performance changes between updates">
+  <meta name="twitter:description" content="Free tool that tracks performance changes between system updates on CachyOS and Arch: see which kernel, driver or package update made your PC faster or slower.">
   <meta name="twitter:image" content="https://botlabsusa.com/assets/icons/cachyos-benchmark/social-preview.png">
+  <meta name="twitter:image:alt" content="CachyOS Benchmark — track performance across rolling updates">
+  <link rel="alternate" type="application/atom+xml" title="CachyOS Benchmark releases" href="https://github.com/botlabsusa/cachyos-benchmark/releases.atom">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CachyOS Benchmark",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Linux x86_64 (CachyOS, Arch-based)",
+  "softwareVersion": "1.0.4",
+  "description": "Tracks performance changes between system updates on CachyOS and Arch-based Linux. Runs the same tests every time, logs kernel and driver versions, and flags real regressions.",
+  "url": "https://botlabsusa.com/apps/cachyos-benchmark.html",
+  "image": "https://botlabsusa.com/assets/icons/cachyos-benchmark/cachy-bench-plate-256.png",
+  "downloadUrl": "https://github.com/botlabsusa/cachyos-benchmark/releases/download/v1.0.4/CachyBench-1.0.4-x86_64.AppImage",
+  "releaseNotes": "https://github.com/botlabsusa/cachyos-benchmark/releases/tag/v1.0.4",
+  "screenshot": [
+    "https://botlabsusa.com/assets/screenshots/cachyos-benchmark/01-run.webp",
+    "https://botlabsusa.com/assets/screenshots/cachyos-benchmark/04-what-changed.webp"
+  ],
+  "license": "https://opensource.org/licenses/MIT",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Botlabs USA",
+    "url": "https://botlabsusa.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Botlabs USA",
+    "url": "https://botlabsusa.com/"
+  }
+}
+  </script>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -47,7 +87,7 @@
         <div>
           <h1>CachyOS Benchmark</h1>
           <p class="lede">
-            Tracks your PC's performance over time so you can see exactly what changed after an update.
+            Tracks performance changes between system updates on CachyOS and Arch-based Linux, so you can see exactly what an update changed.
             It runs the same set of tests every time — CPU, memory, compression, video encoding, disk,
             GPU, and latency — and saves each result with the kernel, NVIDIA, Plasma, and Mesa versions
             you had at the time.
@@ -70,6 +110,7 @@
           run look slower than it really is. Over time that gives you hard numbers to decide whether to
           keep an update or roll it back.
         </p>
+        <p class="note">New to this? Read the guide: <a href="/guides/check-if-an-update-slowed-your-linux-pc.html">How to check if an update slowed down your Linux PC</a>.</p>
       </div>
 
       <h2 class="section" id="features">Features</h2>
@@ -137,6 +178,7 @@
       <h2 class="section" id="downloads">Downloads</h2>
       <div class="download-panel">
         <p class="note">Downloads are hosted on <a href="https://github.com/botlabsusa/cachyos-benchmark/releases/tag/v1.0.4">GitHub Releases</a>. Source code: <a href="https://github.com/botlabsusa/cachyos-benchmark">botlabsusa/cachyos-benchmark</a>.</p>
+        <p class="note dl-count" data-gh-repo="botlabsusa/cachyos-benchmark" data-min="100" hidden></p>
 
         <div class="download-item">
           <div>
@@ -204,6 +246,8 @@
           </svg>
           <span>Become a Patron</span>
         </a>
+        <a href="https://discord.gg/YdHBtghbmr" target="_blank" rel="noopener">Discord</a>
+        <a href="/guides/check-if-an-update-slowed-your-linux-pc.html">Guide: Did an update slow your PC?</a>
         <a href="mailto:support@botlabsusa.com">support@botlabsusa.com</a>
         <a href="/license.html">MIT License</a>
       </div>

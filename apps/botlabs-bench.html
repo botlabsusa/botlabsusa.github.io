@@ -3,19 +3,65 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Botlabs Bench — Portable PC benchmark for Windows &amp; Linux | Botlabs USA</title>
-  <meta name="description" content="Botlabs Bench is a free, portable PC benchmark for Windows and Linux. One file, no installer — test CPU, memory, disk, GPU, and network, then save HTML/CSV/XLSX/JSON reports.">
+  <title>Botlabs Bench — Free portable PC benchmark for Windows &amp; Linux | Botlabs USA</title>
+  <meta name="description" content="Botlabs Bench is a free, portable PC benchmark for Windows and Linux. One file, no installer: test CPU, memory, disk, GPU and network, then save reports.">
   <link rel="canonical" href="https://botlabsusa.com/apps/botlabs-bench.html">
   <meta name="theme-color" content="#fafafa">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Botlabs USA">
-  <meta property="og:title" content="Botlabs Bench — Portable PC benchmark">
-  <meta property="og:description" content="Free portable PC benchmark for Windows and Linux. Quick, Detailed, or Custom modes with live graphs and multi-format reports.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Botlabs Bench — Free portable PC benchmark">
+  <meta property="og:description" content="Free portable PC benchmark for Windows and Linux. One file, no installer. Quick, Detailed or Custom runs with HTML, CSV, Excel and JSON reports.">
   <meta property="og:url" content="https://botlabsusa.com/apps/botlabs-bench.html">
-  <meta property="og:image" content="https://botlabsusa.com/assets/botlabsbench-128.png">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Botlabs Bench — Portable PC benchmark">
-  <meta name="twitter:description" content="Free portable PC benchmark for Windows and Linux. One file, no installer.">
+  <meta property="og:image" content="https://botlabsusa.com/assets/social/botlabs-bench.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="Botlabs Bench — portable PC benchmark for Windows and Linux">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Botlabs Bench — Free portable PC benchmark">
+  <meta name="twitter:description" content="Free portable PC benchmark for Windows and Linux. One file, no installer. Quick, Detailed or Custom runs with HTML, CSV, Excel and JSON reports.">
+  <meta name="twitter:image" content="https://botlabsusa.com/assets/social/botlabs-bench.png">
+  <meta name="twitter:image:alt" content="Botlabs Bench — portable PC benchmark for Windows and Linux">
+  <link rel="alternate" type="application/atom+xml" title="Botlabs Bench releases" href="https://github.com/botlabsusa/botlabs-bench/releases.atom">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Botlabs Bench",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Windows 10, Windows 11, Linux x86_64",
+  "softwareVersion": "1.2.0",
+  "description": "Free, portable PC benchmark for Windows and Linux. Tests CPU, memory, storage, graphics and network and saves HTML, CSV, Excel and JSON reports.",
+  "url": "https://botlabsusa.com/apps/botlabs-bench.html",
+  "image": "https://botlabsusa.com/assets/botlabsbench.png",
+  "downloadUrl": [
+    "https://github.com/botlabsusa/botlabs-bench/releases/download/v1.2.0/BotlabsBench-1.2.0-windows.exe",
+    "https://github.com/botlabsusa/botlabs-bench/releases/download/v1.2.0/BotlabsBench-1.2.0-x86_64.AppImage"
+  ],
+  "releaseNotes": "https://github.com/botlabsusa/botlabs-bench/releases/tag/v1.2.0",
+  "screenshot": [
+    "https://botlabsusa.com/assets/screenshots/botlabs-bench/01-main-quick.webp",
+    "https://botlabsusa.com/assets/screenshots/botlabs-bench/04-finished-results.webp"
+  ],
+  "license": "https://opensource.org/licenses/MIT",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Botlabs USA",
+    "url": "https://botlabsusa.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Botlabs USA",
+    "url": "https://botlabsusa.com/"
+  }
+}
+  </script>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -139,6 +185,7 @@
       <h2 class="section" id="downloads">Downloads</h2>
       <div class="download-panel">
         <p class="note">Downloads are hosted on <a href="https://github.com/botlabsusa/botlabs-bench/releases/tag/v1.2.0">GitHub Releases</a>. Source code: <a href="https://github.com/botlabsusa/botlabs-bench">botlabsusa/botlabs-bench</a>.</p>
+        <p class="note dl-count" data-gh-repo="botlabsusa/botlabs-bench" data-min="100" hidden></p>
 
         <div class="download-item">
           <div>
@@ -213,7 +260,7 @@
       </div>
       <figure class="sample-report" id="sample-report-figure">
         <!-- Filled if screenshot was generated; otherwise a note -->
-        <img id="sample-report-img" src="/assets/botlabs-bench-sample-report.png" alt="Sample Botlabs Bench HTML report" width="1100" height="auto" onerror="this.closest('figure').style.display='none'; document.getElementById('sample-report-fallback').hidden=false;">
+        <img id="sample-report-img" src="/assets/botlabs-bench-sample-report.png" alt="Sample Botlabs Bench HTML report" width="1100" height="1375" onerror="this.closest('figure').style.display='none'; document.getElementById('sample-report-fallback').hidden=false;">
         <figcaption>Sample Botlabs Bench HTML report (charts and scores)</figcaption>
       </figure>
       <p id="sample-report-fallback" class="note" hidden>Sample report image not available yet.</p>
@@ -230,6 +277,8 @@
           </svg>
           <span>Become a Patron</span>
         </a>
+        <a href="https://discord.gg/YdHBtghbmr" target="_blank" rel="noopener">Discord</a>
+        <a href="/guides/check-if-an-update-slowed-your-linux-pc.html">Guide: Did an update slow your PC?</a>
         <a href="mailto:support@botlabsusa.com">support@botlabsusa.com</a>
         <a href="/license.html">MIT License</a>
       </div>

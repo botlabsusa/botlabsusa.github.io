@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to check if an update slowed your Linux PC | Botlabs USA</title>
+  <meta name="description" content="A plain-language guide to finding out if a kernel, driver or package update slowed your Linux PC on CachyOS or Arch: baselines, fair tests, pacman logs, rollback.">
+  <link rel="canonical" href="https://botlabsusa.com/guides/check-if-an-update-slowed-your-linux-pc.html">
+  <meta name="theme-color" content="#fafafa">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Botlabs USA">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="How to check if an update slowed your Linux PC">
+  <meta property="og:description" content="Baselines, fair re-tests, the pacman log and one-change-at-a-time rollbacks: a simple way to prove whether an update made your CachyOS or Arch PC slower.">
+  <meta property="og:url" content="https://botlabsusa.com/guides/check-if-an-update-slowed-your-linux-pc.html">
+  <meta property="og:image" content="https://botlabsusa.com/assets/icons/cachyos-benchmark/social-preview.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="CachyOS Benchmark — track performance across rolling updates">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to check if an update slowed your Linux PC">
+  <meta name="twitter:description" content="Baselines, fair re-tests, the pacman log and one-change-at-a-time rollbacks: a simple way to prove whether an update made your CachyOS or Arch PC slower.">
+  <meta name="twitter:image" content="https://botlabsusa.com/assets/icons/cachyos-benchmark/social-preview.png">
+  <meta name="twitter:image:alt" content="CachyOS Benchmark — track performance across rolling updates">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to check if an update slowed down your Linux PC",
+  "description": "A plain-language guide to finding out if a kernel, driver or package update slowed your Linux PC.",
+  "datePublished": "2026-11-14",
+  "dateModified": "2026-11-14",
+  "author": {
+    "@type": "Organization",
+    "name": "Botlabs USA",
+    "url": "https://botlabsusa.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Botlabs USA",
+    "url": "https://botlabsusa.com/"
+  },
+  "mainEntityOfPage": "https://botlabsusa.com/guides/check-if-an-update-slowed-your-linux-pc.html",
+  "image": "https://botlabsusa.com/assets/icons/cachyos-benchmark/social-preview.png"
+}
+  </script>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo-link" href="/" aria-label="Botlabs USA home">
+        <img src="/assets/logo.svg" alt="Botlabs USA" width="200" height="40">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">☰</button>
+      <nav id="site-nav" class="nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/apps/botlabs-bench.html">Botlabs Bench</a>
+        <a href="/apps/cachyos-benchmark.html">CachyOS Benchmark</a>
+        <a href="/apps/gpo-benchmark.html">GPO Benchmark</a>
+        <a href="/license.html">License</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <article class="guide prose">
+        <p class="guide-kicker">Guide · Linux · About 6 minutes</p>
+        <h1>How to check if an update slowed down your Linux PC</h1>
+        <p class="lede">
+          You updated, and now games stutter or builds feel slower. Maybe the update did it, or maybe
+          it's something else. Here's a simple, fair way to find out, without guessing.
+        </p>
+
+        <h2 class="section" id="why">Why updates can change performance</h2>
+        <p>
+          On a rolling-release system like CachyOS or Arch, one update can bring a new kernel, a new
+          graphics driver, a new Mesa, and dozens of library updates at once. Any of them can change how
+          fast your PC feels: a scheduler change in the kernel, a driver bug, a new default power setting,
+          or a compiler change in a package you use every day.
+        </p>
+        <p>
+          Many slowdowns right after an update are temporary, though. The first boot after a big update
+          often rebuilds shader caches, re-indexes files (KDE's file search, for example) or recompiles
+          kernel modules with DKMS. So the first rule is: <strong>don't judge the first few minutes.</strong>
+        </p>
+
+        <h2 class="section" id="baseline">Step 1: Have a "before" number</h2>
+        <p>
+          You can't prove something got slower without knowing how fast it was. Before you update, run a
+          short set of benchmarks and write down the results along with your versions. These commands show
+          the versions that matter most:
+        </p>
+        <pre><code>uname -r
+pacman -Q mesa nvidia-utils 2&gt;/dev/null
+powerprofilesctl get 2&gt;/dev/null</code></pre>
+        <p>
+          If you already updated and have no "before" number, you can still compare against an older
+          kernel or a downgraded package (Step 4).
+        </p>
+
+        <h2 class="section" id="fair">Step 2: Test the same way every time</h2>
+        <p>Benchmarks are noisy. To get numbers you can trust:</p>
+        <ul>
+          <li><strong>Same conditions.</strong> Plugged in, same power profile, same monitor setup, nothing big running in the background.</li>
+          <li><strong>Start cool.</strong> A warm CPU or GPU boosts less. Wait a few minutes after a game or build, and check temperatures with <code>sensors</code>.</li>
+          <li><strong>Wait after boot.</strong> Give the system a few minutes to finish start-up jobs and cache rebuilds.</li>
+          <li><strong>Run it more than once.</strong> Do two or three runs and look at the spread. If runs differ by 3% from each other, a 2% change after an update means nothing.</li>
+          <li><strong>Use the same tests.</strong> The same tool, the same settings, the same test file. Change one thing at a time.</li>
+        </ul>
+
+        <h2 class="section" id="what-changed">Step 3: Find out what actually changed</h2>
+        <p>
+          pacman keeps a log of every package it installs, upgrades or removes. This shows the most recent
+          upgrades:
+        </p>
+        <pre><code>grep -E "upgraded|installed|removed" /var/log/pacman.log | tail -n 40</code></pre>
+        <p>
+          Look for the big ones first: <code>linux-cachyos</code> (or your kernel), <code>nvidia</code> or
+          <code>mesa</code>, <code>plasma</code> or your desktop, and anything related to the program that
+          got slower.
+        </p>
+
+        <h2 class="section" id="isolate">Step 4: Narrow it down</h2>
+        <ul>
+          <li><strong>Try another kernel.</strong> Many CachyOS and Arch setups keep a second kernel (like an LTS kernel). Boot it from the boot menu and run the same tests. If the old speed comes back, the kernel is your suspect.</li>
+          <li><strong>Downgrade one package.</strong> Older versions usually sit in <code>/var/cache/pacman/pkg/</code>. Install one with <code>sudo pacman -U /var/cache/pacman/pkg/&lt;package-file&gt;</code>, re-test, and upgrade again when you're done.</li>
+          <li><strong>Use a snapshot.</strong> If you use Btrfs snapshots (Snapper or Timeshift), you can roll back the whole system, test, and roll forward again.</li>
+        </ul>
+        <p>Only change one thing per test, or you won't know which change mattered.</p>
+
+        <h2 class="section" id="report">Step 5: Decide, and report it</h2>
+        <p>
+          If a change is real and repeatable, you have three choices: keep the update and live with it,
+          hold the package back for now, or report it. A good bug report includes the old and new package
+          versions, your hardware, the exact test you ran, and the before and after numbers. Developers can
+          act on that. "It feels slower" is much harder to fix.
+        </p>
+
+        <h2 class="section" id="tool">Doing this the easy way</h2>
+        <p>
+          All of this works by hand, but it's tedious, so we built
+          <a href="/apps/cachyos-benchmark.html">CachyOS Benchmark</a> to do it for you. It's free and open
+          source. It tracks performance changes between system updates on CachyOS and other Arch-based
+          systems: it runs the same tests every time (CPU, memory, compression, video encoding, disk, GPU
+          and latency) and saves each run with your kernel, NVIDIA, Plasma and Mesa versions. Its
+          <strong>What changed</strong> view reads the pacman log, lists the packages that changed since your
+          last run, and marks which scores moved more than normal run-to-run noise. It also warns you when a
+          run starts with the PC already hot.
+        </p>
+        <p>
+          Run it once now to save a baseline, then again after your next update. If something got slower,
+          you'll see it, and which update came with it.
+        </p>
+        <p class="guide-cta">
+          <a class="btn btn-primary" href="/apps/cachyos-benchmark.html">Get CachyOS Benchmark</a>
+          <a class="btn btn-secondary" href="/apps/cachyos-benchmark.html#downloads">Downloads</a>
+        </p>
+        <p class="note">On Windows? <a href="/apps/botlabs-bench.html">Botlabs Bench</a> is a portable benchmark for Windows and Linux that saves reports you can compare after updates too.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2026 Botlabs USA</p>
+      <div class="footer-links">
+        <a class="patreon-badge" href="https://www.patreon.com/botlabs" target="_blank" rel="noopener" aria-label="Become a Patron on Patreon">
+          <svg class="patreon-badge-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="16" height="16">
+            <path fill="currentColor" d="M22.957 7.21c-.004-3.064-2.391-5.576-5.191-6.482-3.478-1.125-8.064-.962-11.384.604C2.357 3.231 1.093 7.391 1.046 11.54c-.039 3.411.302 12.396 5.369 12.46 3.765.047 4.326-4.804 6.068-7.141 1.24-1.662 2.836-2.132 4.801-2.618 3.376-.836 5.678-3.501 5.673-7.031Z"/>
+          </svg>
+          <span>Become a Patron</span>
+        </a>
+        <a href="https://discord.gg/YdHBtghbmr" target="_blank" rel="noopener">Discord</a>
+        <a href="/guides/check-if-an-update-slowed-your-linux-pc.html">Guide: Did an update slow your PC?</a>
+        <a href="mailto:support@botlabsusa.com">support@botlabsusa.com</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/main.js" defer></script>
+<script data-goatcounter="https://botlabsusa.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -609,3 +609,44 @@ pre code {
 .shot img { display: block; width: 100%; height: auto; }
 .shot figcaption { font-size: .875rem; color: #666; margin-top: .5rem; line-height: 1.4; }
 @media (max-width: 640px) { .shot-grid { grid-template-columns: 1fr; } }
+
+/* Home: clearer app links (promo-seo) */
+.app-card h2 a.app-title { color: var(--text); text-decoration: none; }
+.app-card h2 a.app-title:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.btn-view {
+  padding: 0.6rem 1.15rem;
+  font-size: 0.95rem;
+  font-weight: 620;
+  box-shadow: 0 1px 2px rgba(15, 118, 110, 0.18);
+}
+.btn-view span { transition: transform 0.15s ease; }
+.btn-view:hover span { transform: translateX(2px); }
+
+/* Home: guides + community */
+.guide-list { list-style: none; padding: 0; margin: 0 0 2.25rem; }
+.guide-list li { padding: 0.55rem 0; border-bottom: 1px solid var(--border); font-size: 0.98rem; }
+.guide-list li:first-child { border-top: 1px solid var(--border); }
+.guide-list .meta { color: var(--text-dim); font-size: 0.9rem; }
+.community { margin: 0 0 2.5rem; }
+.community-line { margin: 0 0 0.5rem; color: var(--text-muted); font-size: 0.98rem; }
+.community-line.small { font-size: 0.86rem; color: var(--text-dim); }
+.community-line .sep { margin: 0 0.4rem; color: var(--text-dim); }
+
+/* Guide pages */
+.guide { max-width: var(--max); }
+.guide h1 { font-size: clamp(1.5rem, 3.2vw, 2rem); letter-spacing: -0.02em; margin: 0.25rem 0 0.6rem; color: var(--text); }
+.guide .lede { font-size: 1.05rem; margin: 0 0 1rem; }
+.guide-kicker { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-dim); margin: 0; }
+.guide ul { padding-left: 1.2rem; margin: 0 0 1rem; }
+.guide li { margin: 0.4rem 0; }
+.guide pre { margin: 0 0 1rem; }
+.guide-cta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0 0.5rem; }
+.dl-count { margin-top: 0.25rem; }
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+.sample-report img { display: block; width: 100%; height: auto; }
